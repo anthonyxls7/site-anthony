@@ -1,132 +1,174 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Anthony Tech - Contato</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechNova - Soluções Digitais</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#0b0f1a;color:#fff;scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+section{padding:100px 8%}
+h2{text-align:center;font-size:2.5rem;margin-bottom:40px}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+/* NAV */
+nav{
+position:fixed;top:0;left:0;width:100%;
+background:rgba(10,14,30,.9);
+backdrop-filter:blur(10px);
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 8%;z-index:999;
+}
+nav ul{display:flex;gap:25px;list-style:none}
+nav a:hover{color:#4fc3f7}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a, #020617);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
+/* HERO */
+.hero{
+height:100vh;
+display:flex;align-items:center;
+background:linear-gradient(120deg,#060b1c,#101a3a);
+}
+.hero-content{max-width:600px}
+.hero h1{font-size:3.5rem}
+.hero p{margin:20px 0;color:#ccc}
+.btn{
+padding:14px 30px;
+background:linear-gradient(45deg,#4fc3f7,#2196f3);
+border:none;border-radius:30px;color:#000;font-weight:600;
+cursor:pointer;transition:.3s;
+}
+.btn:hover{transform:scale(1.05)}
 
-    .container {
-      background: #020617;
-      padding: 40px;
-      border-radius: 14px;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 0 40px rgba(0,0,0,.6);
-      text-align: center;
-    }
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card{
+background:#111831;padding:30px;border-radius:15px;
+transition:.3s;box-shadow:0 0 15px rgba(79,195,247,.1)
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 0 30px rgba(79,195,247,.4)}
 
-    h1 {
-      margin-bottom: 8px;
-    }
+/* PORTFOLIO */
+.portfolio img{width:100%;border-radius:12px}
 
-    p {
-      opacity: .7;
-      margin-bottom: 25px;
-    }
+/* FORM */
+form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px}
+input,textarea{
+padding:15px;border:none;border-radius:10px;background:#1a2140;color:#fff
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 14px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      background: #0f172a;
-      color: #fff;
-    }
+/* FAQ */
+details{background:#111831;padding:20px;border-radius:10px;margin-bottom:15px}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background: linear-gradient(90deg,#06b6d4,#22c55e);
-      color: #000;
-      font-weight: bold;
-      transition: .3s;
-    }
+/* FOOTER */
+footer{text-align:center;padding:40px;background:#050814;color:#777}
 
-    button:hover {
-      transform: scale(1.03);
-    }
-
-    #status {
-      margin-top: 14px;
-      font-size: 14px;
-    }
-  </style>
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:2.4rem}
+nav ul{display:none}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>Fale Conosco</h1>
-    <p>Entre em contato com a Anthony Tech</p>
+<nav>
+<h2>TechNova</h2>
+<ul>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#portfolio">Portfólio</a></li>
+<li><a href="#tecnologias">Tecnologias</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</nav>
 
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Seu nome">
-      <input type="email" id="email" placeholder="Seu email">
-      <textarea id="message" rows="4" placeholder="Sua mensagem"></textarea>
+<section class="hero">
+<div class="hero-content">
+<h1>Transformamos ideias em soluções digitais</h1>
+<p>Somos uma empresa de tecnologia focada em inovação, performance e design premium.</p>
+<button class="btn" onclick="document.getElementById('contato').scrollIntoView()">Fale Conosco</button>
+</div>
+</section>
 
-      <button type="submit">Enviar</button>
-      <div id="status"></div>
-    </form>
-  </div>
+<section id="sobre">
+<h2>Sobre Nós</h2>
+<p style="text-align:center;max-width:700px;margin:auto;color:#ccc">
+A TechNova entrega produtos digitais modernos, seguros e escaláveis para empresas que desejam crescer no ambiente digital.
+</p>
+</section>
 
+<section id="servicos">
+<h2>Serviços</h2>
+<div class="grid">
+<div class="card">Desenvolvimento Web</div>
+<div class="card">Sistemas Corporativos</div>
+<div class="card">UI/UX Design</div>
+<div class="card">Automação</div>
+</div>
+</section>
+
+<section id="portfolio">
+<h2>Portfólio</h2>
+<div class="grid portfolio">
+<img src="https://picsum.photos/400/300?1">
+<img src="https://picsum.photos/400/300?2">
+<img src="https://picsum.photos/400/300?3">
+</div>
+</section>
+
+<section id="tecnologias">
+<h2>Tecnologias</h2>
+<div class="grid">
+<div class="card">HTML</div>
+<div class="card">CSS</div>
+<div class="card">JavaScript</div>
+<div class="card">API's</div>
+</div>
+</section>
+
+<section>
+<h2>Depoimentos</h2>
+<div class="grid">
+<div class="card">"Empresa incrível!"</div>
+<div class="card">"Alta performance."</div>
+<div class="card">"Design premium."</div>
+</div>
+</section>
+
+<section id="contato">
+<h2>Contato</h2>
+<form id="form">
+<input type="text" name="name" placeholder="Seu nome" required>
+<input type="email" name="email" placeholder="Seu email" required>
+<textarea name="message" placeholder="Mensagem" required></textarea>
+<button class="btn" type="submit">Enviar</button>
+</form>
+</section>
+
+<section>
+<h2>FAQ</h2>
+<details><summary>Vocês fazem sites?</summary><p>Sim, completos e profissionais.</p></details>
+<details><summary>São responsivos?</summary><p>100% mobile.</p></details>
+</section>
+
+<footer>
+© 2026 TechNova - Todos os direitos reservados
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs@3/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("RgCXJkDE6vZRa-mxb");
+emailjs.init("RgCXJkDE6vZRa-mxb");
 })();
 
-const form = document.getElementById("contact-form");
-const status = document.getElementById("status");
-
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  if(!name || !email || !message){
-    status.innerHTML = "Preencha todos os campos ⚠️";
-    return;
-  }
-
-  status.innerHTML = "Enviando... 🚀";
-
-  emailjs.send("142812An", "qdbxik", {
-    name: name,
-    email: email,
-    message: message
-  })
-  .then(() => {
-    status.innerHTML = "Mensagem enviada com sucesso ✅";
-    form.reset();
-  })
-  .catch((error) => {
-    console.log(error);
-    status.innerHTML = "Erro ao enviar ❌";
-  });
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
+emailjs.sendForm("142812An","qdbxik",this)
+.then(()=>alert("Mensagem enviada com sucesso! 🚀"))
+.catch(err=>alert("Erro: "+err));
 });
 </script>
 
