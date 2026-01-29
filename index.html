@@ -1,338 +1,130 @@
-freelancer-site/
-├─ pages/
-│  ├─ _app.js
-│  └─ index.js
-├─ styles/
-│  └─ globals.css
-├─ package.json
-import "../styles/globals.css";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Anthony Tech - Contato</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
-import Head from "next/head";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-export default function Home() {
-  const form = useRef();
+    body {
+      background: linear-gradient(135deg,#020617,#0f172a);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+    .container {
+      background: #020617;
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0,0,0,.5);
+      animation: fade .6s ease;
+    }
 
-    emailjs.sendForm(
-      "SEU_SERVICE_ID",
-      "SEU_TEMPLATE_ID",
-      form.current,
-      "SUA_PUBLIC_KEY"
-    ).then(
-      () => {
-        alert("Mensagem enviada! Em breve entrarei em contato.");
-        form.current.reset();
-      },
-      () => {
-        alert("Erro ao enviar. Tente novamente.");
-      }
-    );
-  };
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-  return (
-    <>
-      <Head>
-        <title>Criação de Sites Profissionais | Freelancer Web</title>
-        <meta
-          name="description"
-          content="Criação de sites modernos, rápidos e focados em vendas. Transforme visitantes em clientes."
-        />
-        <meta name="keywords" content="freelancer, criação de sites, landing page, site profissional" />
-        <meta name="author" content="Seu Nome" />
-      </Head>
+    p {
+      text-align: center;
+      opacity: .7;
+      margin-bottom: 25px;
+    }
 
-      <header className="header">
-        <h1>Freelancer Web</h1>
-        <nav>
-          <a href="#beneficios">Benefícios</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-      </header>
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
 
-      <section className="hero">
-        <h2>
-          Sites Profissionais Que <span>Geram Clientes</span>
-        </h2>
-        <p>
-          Desenvolvimento de sites modernos, rápidos e estratégicos para empresas
-          que querem vender mais pela internet.
-        </p>
-        <a href="#contato" className="btn">
-          Quero Vender Mais
-        </a>
-      </section>
+    textarea {
+      resize: none;
+      height: 120px;
+    }
 
-      <section id="beneficios" className="cards">
-        <div className="card">
-          <h3>⚡ Alta Performance</h3>
-          <p>Sites rápidos, otimizados e bem posicionados no Google.</p>
-        </div>
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg,#2563eb,#22c55e);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .3s;
+    }
 
-        <div className="card">
-          <h3>🎯 Foco em Conversão</h3>
-          <p>Design estratégico para transformar visitas em clientes.</p>
-        </div>
+    button:hover {
+      transform: scale(1.05);
+    }
 
-        <div className="card">
-          <h3>📱 Totalmente Responsivo</h3>
-          <p>Perfeito em celular, tablet e computador.</p>
-        </div>
-      </section>
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
 
-      <section id="projetos" className="projetos">
-        <h2>Projetos</h2>
+    @keyframes fade {
+      from {opacity:0; transform:translateY(20px);}
+      to {opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
 
-        <div className="cards">
-          <div className="card card-3d">Site Institucional</div>
-          <div className="card card-3d">Landing Page</div>
-          <div className="card card-3d">Sistema Web</div>
-        </div>
-      </section>
+<body>
 
-      <section id="contato" className="contato">
-        <h2>Solicite um Orçamento</h2>
-        <p>Preencha o formulário e receba uma proposta personalizada.</p>
+  <div class="container">
+    <h1>Fale Conosco</h1>
+    <p>Entre em contato com a Anthony Tech</p>
 
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="name" placeholder="Seu nome" required />
-          <input type="email" name="email" placeholder="Seu melhor email" required />
-          <textarea name="message" placeholder="Descreva seu projeto" />
-          <button type="submit">Receber Proposta</button>
-        </form>
+    <form id="form">
+      <input type="text" name="name" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="message" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+      <div class="status" id="status"></div>
+    </form>
+  </div>
 
-        <p className="whats">📞 WhatsApp: 82981695567</p>
-      </section>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-      <footer>
-        © 2026 • Freelancer Web • Todos os direitos reservados
-      </footer>
-    </>
-  );
-}
-import Head from "next/head";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
+  <script>
+    (function(){
+      emailjs.init("RgCXJkDE6vZRa-mxb");
+    })();
 
-export default function Home() {
-  const form = useRef();
+    const form = document.getElementById("form");
+    const status = document.getElementById("status");
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
 
-    emailjs.sendForm(
-      "SEU_SERVICE_ID",
-      "SEU_TEMPLATE_ID",
-      form.current,
-      "SUA_PUBLIC_KEY"
-    ).then(
-      () => {
-        alert("Mensagem enviada! Em breve entrarei em contato.");
-        form.current.reset();
-      },
-      () => {
-        alert("Erro ao enviar. Tente novamente.");
-      }
-    );
-  };
+      status.innerHTML = "Enviando...";
 
-  return (
-    <>
-      <Head>
-        <title>Criação de Sites Profissionais | Freelancer Web</title>
-        <meta
-          name="description"
-          content="Criação de sites modernos, rápidos e focados em vendas. Transforme visitantes em clientes."
-        />
-        <meta name="keywords" content="freelancer, criação de sites, landing page, site profissional" />
-        <meta name="author" content="Seu Nome" />
-      </Head>
+      emailjs.sendForm("142812An", "template_qdbxik", this)
+        .then(() => {
+          status.innerHTML = "Mensagem enviada com sucesso 🚀";
+          form.reset();
+        }, (error) => {
+          status.innerHTML = "Erro ao enviar ❌";
+        });
+    });
+  </script>
 
-      <header className="header">
-        <h1>Freelancer Web</h1>
-        <nav>
-          <a href="#beneficios">Benefícios</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
-        </nav>
-      </header>
-
-      <section className="hero">
-        <h2>
-          Sites Profissionais Que <span>Geram Clientes</span>
-        </h2>
-        <p>
-          Desenvolvimento de sites modernos, rápidos e estratégicos para empresas
-          que querem vender mais pela internet.
-        </p>
-        <a href="#contato" className="btn">
-          Quero Vender Mais
-        </a>
-      </section>
-
-      <section id="beneficios" className="cards">
-        <div className="card">
-          <h3>⚡ Alta Performance</h3>
-          <p>Sites rápidos, otimizados e bem posicionados no Google.</p>
-        </div>
-
-        <div className="card">
-          <h3>🎯 Foco em Conversão</h3>
-          <p>Design estratégico para transformar visitas em clientes.</p>
-        </div>
-
-        <div className="card">
-          <h3>📱 Totalmente Responsivo</h3>
-          <p>Perfeito em celular, tablet e computador.</p>
-        </div>
-      </section>
-
-      <section id="projetos" className="projetos">
-        <h2>Projetos</h2>
-
-        <div className="cards">
-          <div className="card card-3d">Site Institucional</div>
-          <div className="card card-3d">Landing Page</div>
-          <div className="card card-3d">Sistema Web</div>
-        </div>
-      </section>
-
-      <section id="contato" className="contato">
-        <h2>Solicite um Orçamento</h2>
-        <p>Preencha o formulário e receba uma proposta personalizada.</p>
-
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="name" placeholder="Seu nome" required />
-          <input type="email" name="email" placeholder="Seu melhor email" required />
-          <textarea name="message" placeholder="Descreva seu projeto" />
-          <button type="submit">Receber Proposta</button>
-        </form>
-
-        <p className="whats">📞 WhatsApp: 82981695567</p>
-      </section>
-
-      <footer>
-        © 2026 • Freelancer Web • Todos os direitos reservados
-      </footer>
-    </>
-  );
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
-body {
-  background: #0b0b12;
-  color: #fff;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-}
-
-nav a {
-  margin-left: 20px;
-}
-
-.hero {
-  text-align: center;
-  padding: 120px 10%;
-}
-
-.hero span {
-  color: #00e5ff;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 36px;
-  background: linear-gradient(135deg, #00e5ff, #0077ff);
-  color: #000;
-  border-radius: 40px;
-  font-weight: bold;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  padding: 80px 10%;
-}
-
-.card {
-  background: #151521;
-  padding: 30px;
-  border-radius: 20px;
-  transition: 0.4s;
-}
-
-/* 🔥 ANIMAÇÃO 3D */
-.card-3d {
-  transform-style: preserve-3d;
-}
-
-.card-3d:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-  box-shadow: 0 40px 80px rgba(0, 229, 255, 0.3);
-}
-
-.projetos h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.contato {
-  padding: 80px 10%;
-  text-align: center;
-}
-
-form {
-  max-width: 500px;
-  margin: auto;
-}
-
-input,
-textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 10px;
-  border: none;
-}
-
-button {
-  width: 100%;
-  padding: 15px;
-  margin-top: 15px;
-  background: #00e5ff;
-  border: none;
-  font-weight: bold;
-}
-
-.whats {
-  margin-top: 20px;
-  color: #00e5ff;
-}
-
-footer {
-  padding: 20px;
-  text-align: center;
-  background: #08080d;
-}
-npx create-next-app freelancer-site
-cd freelancer-site
-npm install @emailjs/browser
-npm run dev
+</body>
+</html>
