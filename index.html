@@ -1,305 +1,338 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<title>Portfolio Freelancer Premium</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+freelancer-site/
+├─ pages/
+│  ├─ _app.js
+│  └─ index.js
+├─ styles/
+│  └─ globals.css
+├─ package.json
+import "../styles/globals.css";
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+import Head from "next/head";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
-<style>
+export default function Home() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "SEU_SERVICE_ID",
+      "SEU_TEMPLATE_ID",
+      form.current,
+      "SUA_PUBLIC_KEY"
+    ).then(
+      () => {
+        alert("Mensagem enviada! Em breve entrarei em contato.");
+        form.current.reset();
+      },
+      () => {
+        alert("Erro ao enviar. Tente novamente.");
+      }
+    );
+  };
+
+  return (
+    <>
+      <Head>
+        <title>Criação de Sites Profissionais | Freelancer Web</title>
+        <meta
+          name="description"
+          content="Criação de sites modernos, rápidos e focados em vendas. Transforme visitantes em clientes."
+        />
+        <meta name="keywords" content="freelancer, criação de sites, landing page, site profissional" />
+        <meta name="author" content="Seu Nome" />
+      </Head>
+
+      <header className="header">
+        <h1>Freelancer Web</h1>
+        <nav>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <h2>
+          Sites Profissionais Que <span>Geram Clientes</span>
+        </h2>
+        <p>
+          Desenvolvimento de sites modernos, rápidos e estratégicos para empresas
+          que querem vender mais pela internet.
+        </p>
+        <a href="#contato" className="btn">
+          Quero Vender Mais
+        </a>
+      </section>
+
+      <section id="beneficios" className="cards">
+        <div className="card">
+          <h3>⚡ Alta Performance</h3>
+          <p>Sites rápidos, otimizados e bem posicionados no Google.</p>
+        </div>
+
+        <div className="card">
+          <h3>🎯 Foco em Conversão</h3>
+          <p>Design estratégico para transformar visitas em clientes.</p>
+        </div>
+
+        <div className="card">
+          <h3>📱 Totalmente Responsivo</h3>
+          <p>Perfeito em celular, tablet e computador.</p>
+        </div>
+      </section>
+
+      <section id="projetos" className="projetos">
+        <h2>Projetos</h2>
+
+        <div className="cards">
+          <div className="card card-3d">Site Institucional</div>
+          <div className="card card-3d">Landing Page</div>
+          <div className="card card-3d">Sistema Web</div>
+        </div>
+      </section>
+
+      <section id="contato" className="contato">
+        <h2>Solicite um Orçamento</h2>
+        <p>Preencha o formulário e receba uma proposta personalizada.</p>
+
+        <form ref={form} onSubmit={sendEmail}>
+          <input type="text" name="name" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu melhor email" required />
+          <textarea name="message" placeholder="Descreva seu projeto" />
+          <button type="submit">Receber Proposta</button>
+        </form>
+
+        <p className="whats">📞 WhatsApp: 82981695567</p>
+      </section>
+
+      <footer>
+        © 2026 • Freelancer Web • Todos os direitos reservados
+      </footer>
+    </>
+  );
+}
+import Head from "next/head";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+export default function Home() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "SEU_SERVICE_ID",
+      "SEU_TEMPLATE_ID",
+      form.current,
+      "SUA_PUBLIC_KEY"
+    ).then(
+      () => {
+        alert("Mensagem enviada! Em breve entrarei em contato.");
+        form.current.reset();
+      },
+      () => {
+        alert("Erro ao enviar. Tente novamente.");
+      }
+    );
+  };
+
+  return (
+    <>
+      <Head>
+        <title>Criação de Sites Profissionais | Freelancer Web</title>
+        <meta
+          name="description"
+          content="Criação de sites modernos, rápidos e focados em vendas. Transforme visitantes em clientes."
+        />
+        <meta name="keywords" content="freelancer, criação de sites, landing page, site profissional" />
+        <meta name="author" content="Seu Nome" />
+      </Head>
+
+      <header className="header">
+        <h1>Freelancer Web</h1>
+        <nav>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </header>
+
+      <section className="hero">
+        <h2>
+          Sites Profissionais Que <span>Geram Clientes</span>
+        </h2>
+        <p>
+          Desenvolvimento de sites modernos, rápidos e estratégicos para empresas
+          que querem vender mais pela internet.
+        </p>
+        <a href="#contato" className="btn">
+          Quero Vender Mais
+        </a>
+      </section>
+
+      <section id="beneficios" className="cards">
+        <div className="card">
+          <h3>⚡ Alta Performance</h3>
+          <p>Sites rápidos, otimizados e bem posicionados no Google.</p>
+        </div>
+
+        <div className="card">
+          <h3>🎯 Foco em Conversão</h3>
+          <p>Design estratégico para transformar visitas em clientes.</p>
+        </div>
+
+        <div className="card">
+          <h3>📱 Totalmente Responsivo</h3>
+          <p>Perfeito em celular, tablet e computador.</p>
+        </div>
+      </section>
+
+      <section id="projetos" className="projetos">
+        <h2>Projetos</h2>
+
+        <div className="cards">
+          <div className="card card-3d">Site Institucional</div>
+          <div className="card card-3d">Landing Page</div>
+          <div className="card card-3d">Sistema Web</div>
+        </div>
+      </section>
+
+      <section id="contato" className="contato">
+        <h2>Solicite um Orçamento</h2>
+        <p>Preencha o formulário e receba uma proposta personalizada.</p>
+
+        <form ref={form} onSubmit={sendEmail}>
+          <input type="text" name="name" placeholder="Seu nome" required />
+          <input type="email" name="email" placeholder="Seu melhor email" required />
+          <textarea name="message" placeholder="Descreva seu projeto" />
+          <button type="submit">Receber Proposta</button>
+        </form>
+
+        <p className="whats">📞 WhatsApp: 82981695567</p>
+      </section>
+
+      <footer>
+        © 2026 • Freelancer Web • Todos os direitos reservados
+      </footer>
+    </>
+  );
+}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-    background: #0b0b12;
-    color: #f1f1f1;
-    overflow-x: hidden;
+  background: #0b0b12;
+  color: #fff;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* ===== SCROLL ANIMATION ===== */
-.hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ===== HEADER ===== */
-header {
-    padding: 25px 10%;
-    background: linear-gradient(135deg, #14142a, #0b0b12);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    color: #00e5ff;
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10%;
 }
 
 nav a {
-    margin-left: 25px;
-    font-weight: 500;
+  margin-left: 20px;
 }
 
-nav a:hover {
-    color: #00e5ff;
+.hero {
+  text-align: center;
+  padding: 120px 10%;
 }
 
-/* ===== SECTIONS ===== */
-section {
-    padding: 90px 10%;
+.hero span {
+  color: #00e5ff;
 }
 
-.sobre {
-    text-align: center;
-}
-
-.sobre h2 {
-    font-size: 38px;
-    margin-bottom: 20px;
-}
-
-.sobre p {
-    max-width: 750px;
-    margin: auto;
-    color: #ccc;
-    font-size: 18px;
-}
-
-/* ===== PROJETOS ===== */
-.projetos h2,
-.contato h2 {
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 50px;
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #00e5ff, #0077ff);
+  color: #000;
+  border-radius: 40px;
+  font-weight: bold;
 }
 
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 35px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 80px 10%;
 }
 
 .card {
-    background: #151521;
-    padding: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.4s ease;
+  background: #151521;
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s;
 }
 
-.card:hover {
-    transform: translateY(-12px) scale(1.04);
-    box-shadow: 0 30px 60px rgba(0,229,255,0.25);
+/* 🔥 ANIMAÇÃO 3D */
+.card-3d {
+  transform-style: preserve-3d;
 }
 
-.card i {
-    font-size: 36px;
-    color: #00e5ff;
-    margin-bottom: 15px;
+.card-3d:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 40px 80px rgba(0, 229, 255, 0.3);
 }
 
-.card h3 {
-    margin-bottom: 10px;
+.projetos h2 {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.card p {
-    color: #bbb;
-}
-
-/* ===== BOTÃO ===== */
-.btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 30px;
-    border-radius: 40px;
-    background: linear-gradient(135deg, #00e5ff, #0077ff);
-    color: #000;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 30px rgba(0,229,255,0.7);
-}
-
-/* ===== MODAL ===== */
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background: #151521;
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 500px;
-    width: 90%;
-    position: relative;
-}
-
-.modal-content h3 {
-    color: #00e5ff;
-    margin-bottom: 15px;
-}
-
-.modal-content p {
-    color: #ccc;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 22px;
-    cursor: pointer;
-}
-
-/* ===== CONTATO ===== */
 .contato {
-    background: #101018;
-    text-align: center;
+  padding: 80px 10%;
+  text-align: center;
 }
 
-.contato p {
-    margin-bottom: 20px;
-    color: #ccc;
+form {
+  max-width: 500px;
+  margin: auto;
 }
 
-.contato .info {
-    font-size: 18px;
-    color: #00e5ff;
+input,
+textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
 }
 
-/* ===== FOOTER ===== */
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  background: #00e5ff;
+  border: none;
+  font-weight: bold;
+}
+
+.whats {
+  margin-top: 20px;
+  color: #00e5ff;
+}
+
 footer {
-    background: #08080d;
-    text-align: center;
-    padding: 20px;
-    color: #777;
+  padding: 20px;
+  text-align: center;
+  background: #08080d;
 }
-
-/* ===== RESPONSIVO ===== */
-@media(max-width: 600px){
-    header {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>Freelancer Dev</h1>
-    <nav>
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-    </nav>
-</header>
-
-<section id="sobre" class="sobre hidden">
-    <h2>Sobre Mim</h2>
-    <p>
-        Desenvolvedor freelancer especializado em sites modernos,
-        rápidos e com design profissional para empresas e negócios digitais.
-    </p>
-</section>
-
-<section id="projetos" class="projetos hidden">
-    <h2>Projetos</h2>
-
-    <div class="cards">
-        <div class="card" onclick="openModal('Site Institucional','Projeto moderno para empresas.')">
-            <i class="fa-solid fa-building"></i>
-            <h3>Site Institucional</h3>
-            <p>Design profissional e responsivo.</p>
-        </div>
-
-        <div class="card" onclick="openModal('Landing Page','Alta conversão e performance.')">
-            <i class="fa-solid fa-rocket"></i>
-            <h3>Landing Page</h3>
-            <p>Foco em vendas e resultados.</p>
-        </div>
-
-        <div class="card" onclick="openModal('Dashboard','Sistema administrativo moderno.')">
-            <i class="fa-solid fa-chart-line"></i>
-            <h3>Dashboard</h3>
-            <p>Visual limpo e funcional.</p>
-        </div>
-    </div>
-</section>
-
-<section id="contato" class="contato hidden">
-    <h2>Contato</h2>
-    <p>Vamos tirar seu projeto do papel?</p>
-    <div class="info">
-        <i class="fa-brands fa-whatsapp"></i> 82981695567
-    </div>
-    <a href="https://wa.me/5582981695567" class="btn">Falar no WhatsApp</a>
-</section>
-
-<footer>
-    © 2026 • Freelancer Premium
-</footer>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h3 id="modalTitle"></h3>
-        <p id="modalText"></p>
-    </div>
-</div>
-
-<script>
-/* ===== SCROLL ANIMATION ===== */
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-        }
-    });
-});
-
-document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
-
-/* ===== MODAL ===== */
-function openModal(title, text){
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalText').innerText = text;
-    document.getElementById('modal').style.display = 'flex';
-}
-
-function closeModal(){
-    document.getElementById('modal').style.display = 'none';
-}
-</script>
-
-</body>
-</html>
+npx create-next-app freelancer-site
+cd freelancer-site
+npm install @emailjs/browser
+npm run dev
