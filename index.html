@@ -1,51 +1,222 @@
 <!DOCTYPE html>
-<html lang=“pt-br”>
+<html lang="pt-BR">
 <head>
-<meta charset=“UTF-8”>
-<title>Anthony | Desenvolvedor Frontend</title>
-<meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+    <meta charset="UTF-8">
+    <title>Portfolio Profissional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-body {
-  font-family: ‘Segoe UI’, Arial, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-}
+        body {
+            background: #0f0f14;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
 
-/* HEADER */
-header {
-  padding: 100px 20px;
-  text-align: center;
-}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-header h1 {
-  font-size: 60px;
-}
+        header {
+            background: linear-gradient(135deg, #1f1f2e, #151520);
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-header p {
-  opacity: .8;
-  margin-top: 10px;
-}
+        header h1 {
+            font-size: 26px;
+            color: #00d4ff;
+        }
 
-nav {
-  margin-top: 25px;
-}
+        nav a {
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-nav a {
-  color: #00e5ff;
-  margin: 0 12px;
-  text-decoration: none;
-  font-weight: bold;
-}
+        nav a:hover {
+            color: #00d4ff;
+        }
 
-/* SECTIONS */
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 20px;
+        section {
+            padding: 80px 10%;
+        }
+
+        .sobre {
+            text-align: center;
+        }
+
+        .sobre h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .sobre p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            color: #cfcfcf;
+        }
+
+        .projetos h2,
+        .contato h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #1a1a25;
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(0,212,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.25);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #00d4ff, #0077ff);
+            color: #000;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,212,255,0.6);
+        }
+
+        .contato {
+            text-align: center;
+        }
+
+        .contato p {
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .contato a {
+            margin: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Meu Portfolio</h1>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="sobre" class="sobre">
+        <h2>Sobre Mim</h2>
+        <p>
+            Sou um desenvolvedor apaixonado por tecnologia, focado em criar interfaces modernas,
+            experiências fluidas e soluções eficientes. Trabalho com foco em qualidade,
+            performance e design.
+        </p>
+    </section>
+
+    <section id="projetos" class="projetos">
+        <h2>Projetos</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Projeto 01</h3>
+                <p>Website moderno com layout responsivo e animações suaves.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 02</h3>
+                <p>Dashboard profissional com gráficos e tema escuro.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 03</h3>
+                <p>Landing page focada em conversão e performance.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2>Contato</h2>
+        <p>Vamos trabalhar juntos? Entre em contato comigo.</p>
+
+        <a href="mailto:seuemail@email.com" class="btn">Email</a>
+        <a href="#" class="btn">LinkedIn</a>
+        <a href="#" class="btn">GitHub</a>
+    </section>
+
+    <footer>
+        © 2026 - Seu Nome | Todos os direitos reservados
+    </footer>
+
+</body>
+</html>
