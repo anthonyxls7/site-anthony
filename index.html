@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Anthony Tech - Contato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg,#020617,#0f172a);
-      color: #fff;
+      margin: 0;
       min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a, #020617);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      color: #fff;
     }
 
     .container {
       background: #020617;
       padding: 40px;
-      border-radius: 16px;
-      max-width: 420px;
+      border-radius: 14px;
       width: 100%;
-      box-shadow: 0 20px 40px rgba(0,0,0,.5);
-      animation: fade .6s ease;
+      max-width: 420px;
+      box-shadow: 0 0 40px rgba(0,0,0,.6);
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     p {
-      text-align: center;
       opacity: .7;
       margin-bottom: 25px;
     }
@@ -50,38 +49,29 @@
       border-radius: 8px;
       border: none;
       outline: none;
-    }
-
-    textarea {
-      resize: none;
-      height: 120px;
+      background: #0f172a;
+      color: #fff;
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       border: none;
-      border-radius: 8px;
-      background: linear-gradient(135deg,#2563eb,#22c55e);
-      color: white;
-      font-size: 16px;
+      border-radius: 10px;
       cursor: pointer;
+      background: linear-gradient(90deg,#06b6d4,#22c55e);
+      color: #000;
+      font-weight: bold;
       transition: .3s;
     }
 
     button:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
-    .status {
-      margin-top: 15px;
-      text-align: center;
+    #status {
+      margin-top: 14px;
       font-size: 14px;
-    }
-
-    @keyframes fade {
-      from {opacity:0; transform:translateY(20px);}
-      to {opacity:1; transform:translateY(0);}
     }
   </style>
 </head>
@@ -92,39 +82,53 @@
     <h1>Fale Conosco</h1>
     <p>Entre em contato com a Anthony Tech</p>
 
-    <form id="form">
-      <input type="text" name="name" placeholder="Seu nome" required>
-      <input type="email" name="email" placeholder="Seu e-mail" required>
-      <textarea name="message" placeholder="Sua mensagem" required></textarea>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Seu nome">
+      <input type="email" id="email" placeholder="Seu email">
+      <textarea id="message" rows="4" placeholder="Sua mensagem"></textarea>
+
       <button type="submit">Enviar</button>
-      <div class="status" id="status"></div>
+      <div id="status"></div>
     </form>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("RgCXJkDE6vZRa-mxb");
+})();
 
-  <script>
-    (function(){
-      emailjs.init("RgCXJkDE6vZRa-mxb");
-    })();
+const form = document.getElementById("contact-form");
+const status = document.getElementById("status");
 
-    const form = document.getElementById("form");
-    const status = document.getElementById("status");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
 
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
-      status.innerHTML = "Enviando...";
+  if(!name || !email || !message){
+    status.innerHTML = "Preencha todos os campos ⚠️";
+    return;
+  }
 
-      emailjs.sendForm("142812An", "template_qdbxik", this)
-        .then(() => {
-          status.innerHTML = "Mensagem enviada com sucesso 🚀";
-          form.reset();
-        }, (error) => {
-          status.innerHTML = "Erro ao enviar ❌";
-        });
-    });
-  </script>
+  status.innerHTML = "Enviando... 🚀";
+
+  emailjs.send("142812An", "qdbxik", {
+    name: name,
+    email: email,
+    message: message
+  })
+  .then(() => {
+    status.innerHTML = "Mensagem enviada com sucesso ✅";
+    form.reset();
+  })
+  .catch((error) => {
+    console.log(error);
+    status.innerHTML = "Erro ao enviar ❌";
+  });
+});
+</script>
 
 </body>
 </html>
