@@ -1,2 +1,76 @@
 # index.html
 Meu primeiro site em HTML, CSS e javascript.
+<!DOCTYPE html>
+<html lang=“pt-br”>
+<head>
+  <meta charset=“UTF-8”>
+  <title>Portfólio do Anthony</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 40px;
+      font-size: 28px;
+    }
+    section {
+      margin-top: 60px;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      margin: 20px auto;
+      width: 300px;
+      border-radius: 12px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #00c6ff;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0094cc;
+    }
+    footer {
+      margin-top: 80px;
+      font-size: 14px;
+      opacity: .7;
+Você enviou
+}
+  </style>
+</head>
+<body>
+
+<header>
+🚀 Portfólio do Anthony
+</header>
+
+<section>
+  <h2>Sobre mim</h2>
+  <div class=“card”>
+    Sou iniciante em programação e estou criando meus primeiros projetos em HTML, CSS e JavaScript.
+  </div>
+
+  <h2>Projetos</h2>
+  <div class=“card”>
+    Meu primeiro site no GitHub Pages.
+  </div>
+
+  <button onclick=“alert(‘Em breve mais projetos 😎’)”>
+    Clique aqui
+  </button>
+</section>
+
+<footer>
+© 2026 - Anthony
+</footer>
+
+</body>
+</htm
