@@ -1,74 +1,67 @@
-<!DOCTYPE html>
-<html lang=“pt-br”>
-<head>
-  <meta charset=“UTF-8”>
-  <title>Portfólio do Anthony</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(120deg,#0f2027,#203a43,#2c5364);
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 40px;
-      font-size: 28px;
-    }
-    section {
-      margin-top: 60px;
-    }
-    .card {
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      margin: 20px auto;
-      width: 300px;
-      border-radius: 12px;
-    }
-    button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #00c6ff;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #0094cc;
-    }
-    footer {
-      margin-top: 80px;
-      font-size: 14px;
-      opacity: .7;
+
 Você enviou
-}
-  </style>
-</head>
 <body>
 
-<header>
-🚀 Portfólio do Anthony
-</header>
+  <header>
+    <h1>Anthony</h1>
+    <p>Desenvolvedor Frontend | Criando soluções modernas</p>
 
-<section>
-  <h2>Sobre mim</h2>
-  <div class=“card”>
-    Sou iniciante em programação e estou criando meus primeiros projetos em HTML, CSS e JavaScript.
-  </div>
+    <nav>
+      <a href=“#sobre”>Sobre</a>
+      <a href=“#projetos”>Projetos</a>
+      <a href=“#contato”>Contato</a>
+    </nav>
+  </header>
 
-  <h2>Projetos</h2>
-  <div class=“card”>
-    Meu primeiro site no GitHub Pages.
-  </div>
+  <section id=“sobre”>
+    <h2>Sobre mim</h2>
 
-  <button onclick=“alert(‘Em breve mais projetos 😎’)”>
-    Clique aqui
-  </button>
-</section>
+    <div class=“card”>
+      <p>
+        Sou desenvolvedor em formação focado em HTML, CSS e JavaScript. 
+        Estou criando projetos modernos, rápidos e responsivos para pessoas e empresas que querem presença profissional na internet.
+      </p>
+    </div>
+  </section>
 
-<footer>
-© 2026 - Anthony
-</footer>
+  <section id=“projetos”>
+    <h2>Projetos</h2>
+
+    <div class=“projects”>
+      <div class=“card”>
+        <h3>Portfólio Pessoal</h3>
+        <p>Meu primeiro site publicado no GitHub Pages.</p>
+        <a class=“btn” href=“https://anthonyxls7.github.io/site-anthony/“ target=“_blank”>Ver projeto</a>
+      </div>
+
+      <div class=“card”>
+        <h3>Landing Page</h3>
+        <p>Modelo de página para negócios e divulgação.</p>
+        <a class=“btn” href=“#” onclick=“alert(‘Em breve mais projetos 😎’)”>Em breve</a>
+      </div>
+
+      <div class=“card”>
+        <h3>Sistema Web</h3>
+        <p>Projeto futuro com login e painel.</p>
+        <a class=“btn” href=“#” onclick=“alert(‘Em desenvolvimento 🚀’)”>Em breve</a>
+      </div>
+    </div>
+  </section>
+
+  <section id=“contato”>
+    <h2>Contato</h2>
+
+    <div class=“card”>
+      <p>Quer um site profissional?</p>
+      <p>Entre em contato comigo pelo GitHub:</p>
+
+      <a class=“btn” href=“https://github.com/anthonyxls7” target=“_blank”>Meu GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 - Anthony | Todos os direitos reservados
+  </footer>
 
 </body>
-</htm
+</html>
