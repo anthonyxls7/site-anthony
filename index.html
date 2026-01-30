@@ -1,231 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Odonto Paula melo - Clínica Odontológica</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="theme-color" content="#0d6efd">
+<meta charset="UTF-8">
+<title>Odonto Paula melo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d6efd">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
+body{background:#f4f7fb;color:#333}
+header{background:#0d6efd;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0}
+nav{display:flex;gap:15px}
+nav a{color:#fff;text-decoration:none;font-weight:600}
+.menu-btn{display:none;font-size:26px;cursor:pointer}
+.hero{padding:70px 20px;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("https://images.unsplash.com/photo-1606813909355-e96b7c08c2ad") center/cover;color:#fff;text-align:center}
+section{max-width:1100px;margin:auto;padding:50px 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:#fff;padding:25px;border-radius:14px;box-shadow:0 6px 12px rgba(0,0,0,.1);transition:.3s;text-align:center}
+.card:hover{transform:translateY(-6px)}
+.price{color:#0d6efd;font-weight:bold;margin:10px 0}
+.btn{display:inline-block;margin-top:12px;padding:10px 20px;background:#0d6efd;color:#fff;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+footer{background:#222;color:#fff;text-align:center;padding:25px}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:bold}
 
-    body {
-      background: #f4f7fb;
-      color: #333;
-      line-height: 1.6;
-    }
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center}
+.modal-content{background:#fff;padding:25px;border-radius:12px;width:90%;max-width:400px}
+.modal-content input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc}
 
-    header {
-      background: #0d6efd;
-      color: #fff;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.3rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 15px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .menu-btn {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    .hero {
-      padding: 70px 20px;
-      background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-        url("https://images.unsplash.com/photo-1606813909355-e96b7c08c2ad") center/cover;
-      color: #fff;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    h2 {
-      color: #0d6efd;
-      margin-bottom: 20px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 6px 12px rgba(0,0,0,.1);
-      transition: .3s;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .price {
-      color: #0d6efd;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: #0d6efd;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 25px 10px;
-    }
-
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,.3);
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: #0d6efd;
-        flex-direction: column;
-        display: none;
-        text-align: center;
-      }
-
-      nav a {
-        padding: 15px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-    }
-  </style>
+@media(max-width:768px){
+nav{position:absolute;top:60px;left:0;right:0;background:#0d6efd;flex-direction:column;display:none;text-align:center}
+nav a{padding:15px}
+.menu-btn{display:block}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Odonto Paula melo</h1>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  <nav id="menu">
-    <a href="#inicio">Início</a>
-    <a href="#servicos">Tratamentos</a>
-    <a href="#contato">Contato</a>
-  </nav>
+<h1>Odonto Paula melo</h1>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<nav id="menu">
+<a href="#inicio">Início</a>
+<a href="#servicos">Tratamentos</a>
+<a href="#contato">Contato</a>
+</nav>
 </header>
 
 <section class="hero" id="inicio">
-  <h2>Sorriso saudável começa aqui</h2>
-  <p>Alta tecnologia e atendimento humanizado</p>
+<h2>Sorriso saudável começa aqui</h2>
+<p>Tecnologia e cuidado com você</p>
 </section>
 
 <section id="servicos">
-  <h2>🦷 Tratamentos</h2>
+<h2>🦷 Tratamentos</h2>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Limpeza</h3>
-      <p>Profilaxia completa.</p>
-      <p class="price">R$ 150</p>
-      <a class="btn" href="#">Agendar</a>
-    </div>
+<div class="cards">
+<div class="card">
+<h3>Limpeza</h3>
+<p class="price">R$150</p>
+<button class="btn" onclick="abrirModal('Limpeza')">Agendar</button>
+</div>
 
-    <div class="card">
-      <h3>Clareamento</h3>
-      <p>Sorriso mais branco.</p>
-      <p class="price">R$ 800</p>
-      <a class="btn" href="#">Agendar</a>
-    </div>
+<div class="card">
+<h3>Clareamento</h3>
+<p class="price">R$800</p>
+<button class="btn" onclick="abrirModal('Clareamento')">Agendar</button>
+</div>
 
-    <div class="card">
-      <h3>Implante</h3>
-      <p>Reposição dental.</p>
-      <p class="price">R$ 2.500</p>
-      <a class="btn" href="#">Agendar</a>
-    </div>
+<div class="card">
+<h3>Implante</h3>
+<p class="price">R$2500</p>
+<button class="btn" onclick="abrirModal('Implante')">Agendar</button>
+</div>
 
-    <div class="card">
-      <h3>Ortodontia</h3>
-      <p>Aparelhos modernos.</p>
-      <p class="price">R$ 200/mês</p>
-      <a class="btn" href="#">Agendar</a>
-    </div>
-  </div>
+<div class="card">
+<h3>Ortodontia</h3>
+<p class="price">R$200/mês</p>
+<button class="btn" onclick="abrirModal('Ortodontia')">Agendar</button>
+</div>
+</div>
 </section>
 
 <section id="contato">
-  <h2>📞 Contato</h2>
-  <p>WhatsApp: (82) 99999-9999</p>
-  <p>Endereço: Centro - Maceio</p>
+<h2>📞 Contato</h2>
+<p>WhatsApp: (82) 9980-3037</p>
 </section>
 
 <footer>
-  <p>© 2026 - Odonto paula melo</p>
+<p>© 2026 - Odonto Paula</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/5582999999999" target="_blank">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/55829980-3037" target="_blank">WhatsApp</a>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<h3>Agendamento</h3>
+<input id="nome" placeholder="Seu nome">
+<input id="fone" placeholder="WhatsApp">
+<input id="data" type="date">
+<input id="servico" readonly>
+<button class="btn" onclick="salvar()">Confirmar</button>
+<button class="btn" style="background:#999" onclick="fechar()">Cancelar</button>
+</div>
+</div>
 
 <script>
-  function toggleMenu() {
-    const menu = document.getElementById("menu");
-    if (menu.style.display === "flex") {
-      menu.style.display = "none";
-    } else {
-      menu.style.display = "flex";
-    }
-  }
+function toggleMenu(){
+const menu=document.getElementById("menu");
+menu.style.display = menu.style.display=="flex"?"none":"flex";
+}
+
+function abrirModal(servico){
+document.getElementById("modal").style.display="flex";
+document.getElementById("servico").value=servico;
+}
+
+function fechar(){
+document.getElementById("modal").style.display="none";
+}
+
+function salvar(){
+let dados={
+nome:nome.value,
+fone:fone.value,
+data:data.value,
+servico:servico.value
+}
+
+let lista=JSON.parse(localStorage.getItem("agendamentos")||"[]");
+lista.push(dados);
+localStorage.setItem("agendamentos",JSON.stringify(lista));
+
+alert("Agendamento realizado com sucesso!");
+fechar();
+}
 </script>
 
 </body>
