@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthony | Software Engineer</title>
+<title>Anthony | Startup PRO</title>
 
 <style>
 :root {
   --main: #00f7ff;
   --bg: #050b16;
-  --card: rgba(255,255,255,.05);
+  --card: rgba(255,255,255,.06);
 }
 
 * {
@@ -31,7 +31,7 @@ nav {
   top: 0;
   width: 100%;
   background: rgba(0,0,0,.6);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   padding: 15px 40px;
@@ -79,6 +79,14 @@ section {
   max-width: 1100px;
   margin: auto;
   padding: 100px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .cards {
@@ -96,7 +104,7 @@ section {
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.03);
   box-shadow: 0 0 25px #00f7ff44;
 }
 
@@ -107,6 +115,18 @@ section {
   border-radius: 20px;
   margin: 6px;
   display: inline-block;
+}
+
+form {
+  max-width: 400px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
 }
 
 footer {
@@ -131,8 +151,8 @@ footer {
 
 <div class="hero">
   <div>
-    <h1>Anthony<br><span>Estudante de Engenharia de Software</span></h1>
-    <p>Desenvolvedor em início de carreira focado em criar soluções modernas.</p>
+    <h1>Anthony<br><span id="typing"></span></h1>
+    <p>Portfólio profissional estilo startup.</p>
     <a class="btn" href="#contato">Fale comigo</a>
   </div>
 </div>
@@ -140,28 +160,18 @@ footer {
 <section id="sobre">
   <h2>👨‍💻 Sobre</h2>
   <p>
-    Sou estudante de Engenharia de Software, iniciando minha trajetória profissional
-    na área de tecnologia. Tenho foco em desenvolvimento web, criação de sistemas,
-    interfaces modernas e soluções eficientes. Busco minha primeira oportunidade
-    para crescer e contribuir com projetos reais.
+    Sou estudante de Engenharia de Software iniciando minha carreira em tecnologia.
+    Trabalho com desenvolvimento web, interfaces modernas e sistemas funcionais.
+    Busco minha primeira oportunidade para evoluir e entregar valor real.
   </p>
 </section>
 
 <section id="projetos">
   <h2>🚀 Projetos</h2>
   <div class="cards">
-    <div class="card">
-      <h3>Portfólio Profissional</h3>
-      <p>Site responsivo com design moderno e animações.</p>
-    </div>
-    <div class="card">
-      <h3>Sistema de Login</h3>
-      <p>Autenticação front-end com layout corporativo.</p>
-    </div>
-    <div class="card">
-      <h3>Mini Games</h3>
-      <p>Jogos em JavaScript para prática de lógica.</p>
-    </div>
+    <div class="card">Sistema de Login</div>
+    <div class="card">Portfólio Profissional</div>
+    <div class="card">Mini Games JS</div>
   </div>
 </section>
 
@@ -173,21 +183,56 @@ footer {
     <span>JavaScript</span>
     <span>Git</span>
     <span>GitHub</span>
-    <span>Responsivo</span>
-    <span>Node.js (iniciante)</span>
+    <span>Node.js</span>
   </div>
 </section>
 
 <section id="contato">
   <h2>📫 Contato</h2>
+
+  <form onsubmit="enviar(event)">
+    <input placeholder="Nome" required>
+    <input placeholder="Email" required>
+    <textarea placeholder="Mensagem"></textarea>
+    <button class="btn">Enviar</button>
+  </form>
+
   <p>Email: Anthonyisaac191207@gmail.com</p>
-  <p>GitHub: github.com/anthonyxls7</p>
-  <p>LinkedIn: anthonyisaac</p>
+  <p>GitHub: github.com/Anthonyxls7l</p>
 </section>
 
 <footer>
-  <p>© 2026 - Anthony | Engenharia de Software</p>
+  <p>© 2026 - Anthony | Startup PRO</p>
 </footer>
+
+<script>
+// typing
+const text = "Estudante de Engenharia de Software";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 80);
+  }
+}
+type();
+
+// scroll animation
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
+
+function enviar(e){
+  e.preventDefault();
+  alert("Mensagem enviada! (front-end demo)");
+}
+</script>
 
 </body>
 </html>
