@@ -2,221 +2,192 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Odonto Paula M</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a84ff">
+<title>Anthony | Software Engineer</title>
 
 <style>
-:root{
---bg:#0b0f1a;
---card:#11182a;
---primary:#0a84ff;
---text:#eaeaf0;
+:root {
+  --main: #00f7ff;
+  --bg: #050b16;
+  --card: rgba(255,255,255,.05);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
-body{background:var(--bg);color:var(--text)}
-
-header{
-background:#050914;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;top:0;z-index:10;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-nav{display:flex;gap:20px}
-nav a{color:var(--text);text-decoration:none;font-weight:600}
+html { scroll-behavior: smooth; }
 
-.menu-btn{display:none;font-size:26px}
-
-.hero{
-padding:90px 20px;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url("https://images.unsplash.com/photo-1606813909355-e96b7c08c2ad") center/cover;
-text-align:center;
+body {
+  background: radial-gradient(circle at top, #08152e, #02040a);
+  color: #fff;
 }
 
-section{max-width:1100px;margin:auto;padding:60px 20px}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  z-index: 100;
 }
 
-.card{
-background:var(--card);
-padding:25px;
-border-radius:18px;
-box-shadow:0 0 20px rgba(10,132,255,.15);
-transition:.4s;
-text-align:center;
-animation:fade .8s ease;
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 35px rgba(10,132,255,.4);
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
+.hero h1 {
+  font-size: 3rem;
 }
 
-.price{color:var(--primary);font-weight:bold;margin:10px 0}
-
-.btn{
-margin-top:10px;
-padding:10px 22px;
-background:var(--primary);
-color:white;
-border:none;
-border-radius:30px;
-cursor:pointer;
+.hero span {
+  color: var(--main);
 }
 
-footer{text-align:center;padding:30px;background:#050914}
-
-.modal{
-position:fixed;inset:0;
-background:rgba(0,0,0,.7);
-display:none;align-items:center;justify-content:center;
+.btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: var(--main);
+  color: black;
+  border-radius: 30px;
+  display: inline-block;
+  text-decoration: none;
+  transition: .3s;
 }
 
-.modal-content{
-background:var(--card);
-padding:25px;border-radius:16px;width:90%;max-width:380px;
+.btn:hover {
+  box-shadow: 0 0 20px var(--main);
 }
 
-input{
-width:100%;padding:10px;margin:8px 0;
-border-radius:8px;border:none;
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 20px;
 }
 
-.admin{
-background:var(--card);
-padding:20px;border-radius:14px;
-margin-top:30px;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 25px;
 }
 
-.whatsapp{
-position:fixed;bottom:20px;right:20px;
-background:#25d366;padding:14px 20px;
-border-radius:40px;color:white;text-decoration:none;
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 25px;
+  border: 1px solid #00f7ff22;
+  transition: .3s;
 }
 
-@media(max-width:768px){
-nav{display:none;flex-direction:column;background:#050914;position:absolute;top:60px;left:0;right:0}
-.menu-btn{display:block}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #00f7ff44;
+}
+
+.skills span {
+  background: #00f7ff;
+  color: black;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 6px;
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #020814;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h2>Odonto Paula melo</h2>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<nav id="menu">
-<a href="#inicio">Início</a>
-<a href="#servicos">Tratamentos</a>
-<a href="#admin">Admin</a>
+<nav>
+  <b>Anthony.dev</b>
+  <div>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#skills">Skills</a>
+    <a href="#contato">Contato</a>
+  </div>
 </nav>
-</header>
 
-<section class="hero" id="inicio">
-<h1>O FUTURO DO SEU SORRISO</h1>
-<p>Design, tecnologia e cuidado premium</p>
+<div class="hero">
+  <div>
+    <h1>Anthony<br><span>Estudante de Engenharia de Software</span></h1>
+    <p>Desenvolvedor em início de carreira focado em criar soluções modernas.</p>
+    <a class="btn" href="#contato">Fale comigo</a>
+  </div>
+</div>
+
+<section id="sobre">
+  <h2>👨‍💻 Sobre</h2>
+  <p>
+    Sou estudante de Engenharia de Software, iniciando minha trajetória profissional
+    na área de tecnologia. Tenho foco em desenvolvimento web, criação de sistemas,
+    interfaces modernas e soluções eficientes. Busco minha primeira oportunidade
+    para crescer e contribuir com projetos reais.
+  </p>
 </section>
 
-<section id="servicos">
-<h2>🦷 Tratamentos</h2>
-<div class="cards">
-<div class="card">
-<h3>Limpeza</h3>
-<p class="price">R$150</p>
-<button class="btn" onclick="abrir('Limpeza')">Agendar</button>
-</div>
-
-<div class="card">
-<h3>Clareamento</h3>
-<p class="price">R$800</p>
-<button class="btn" onclick="abrir('Clareamento')">Agendar</button>
-</div>
-
-<div class="card">
-<h3>Implante</h3>
-<p class="price">R$2500</p>
-<button class="btn" onclick="abrir('Implante')">Agendar</button>
-</div>
-
-<div class="card">
-<h3>Ortodontia</h3>
-<p class="price">R$200/mês</p>
-<button class="btn" onclick="abrir('Ortodontia')">Agendar</button>
-</div>
-</div>
+<section id="projetos">
+  <h2>🚀 Projetos</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Portfólio Profissional</h3>
+      <p>Site responsivo com design moderno e animações.</p>
+    </div>
+    <div class="card">
+      <h3>Sistema de Login</h3>
+      <p>Autenticação front-end com layout corporativo.</p>
+    </div>
+    <div class="card">
+      <h3>Mini Games</h3>
+      <p>Jogos em JavaScript para prática de lógica.</p>
+    </div>
+  </div>
 </section>
 
-<section id="admin">
-<h2>📊 Painel Admin</h2>
-<div class="admin" id="lista"></div>
+<section id="skills">
+  <h2>🧠 Skills</h2>
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Git</span>
+    <span>GitHub</span>
+    <span>Responsivo</span>
+    <span>Node.js (iniciante)</span>
+  </div>
 </section>
 
-<footer>© 2026 - Odonto Paula melo</footer>
+<section id="contato">
+  <h2>📫 Contato</h2>
+  <p>Email: seuemail@email.com</p>
+  <p>GitHub: github.com/seuperfil</p>
+  <p>LinkedIn: linkedin.com/in/seuperfil</p>
+</section>
 
-<a class="whatsapp" href="https://wa.me/5582999999999" target="_blank">WhatsApp</a>
-
-<div class="modal" id="modal">
-<div class="modal-content">
-<h3>Agendar</h3>
-<input id="nome" placeholder="Nome">
-<input id="fone" placeholder="WhatsApp">
-<input id="data" type="date">
-<input id="servico" readonly>
-<button class="btn" onclick="salvar()">Confirmar</button>
-<button class="btn" style="background:#444" onclick="fechar()">Cancelar</button>
-</div>
-</div>
-
-<script>
-function toggleMenu(){
-menu.style.display = menu.style.display=="flex"?"none":"flex";
-}
-
-function abrir(s){
-modal.style.display="flex";
-servico.value=s;
-}
-
-function fechar(){
-modal.style.display="none";
-}
-
-function salvar(){
-let dados={nome:nome.value,fone:fone.value,data:data.value,servico:servico.value};
-let lista=JSON.parse(localStorage.getItem("ag")||"[]");
-lista.push(dados);
-localStorage.setItem("ag",JSON.stringify(lista));
-fechar();
-carregar();
-alert("Agendado com sucesso!");
-}
-
-function carregar(){
-let lista=JSON.parse(localStorage.getItem("ag")||"[]");
-let html="";
-lista.forEach(a=>{
-html+=`<p>🧑 ${a.nome} | ${a.servico} | ${a.data}</p>`;
-});
-document.getElementById("lista").innerHTML=html || "Nenhum agendamento.";
-}
-
-carregar();
-</script>
+<footer>
+  <p>© 2026 - Anthony | Engenharia de Software</p>
+</footer>
 
 </body>
 </html>
